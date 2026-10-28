@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#2f6b4f">
+  <meta name="color-scheme" content="light">
+  <title>每日执行力计划</title>
+  <meta name="description" content="一个为大学生设计的每日执行力计划工具：课程表、每日任务、真实打卡、复盘与备份。数据保存在本机。">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="每日执行力">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#view">跳到主要内容</a>
+
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <header class="appbar">
+      <a class="wordmark" href="#today" aria-label="每日执行力计划首页">
+        <span class="wordmark-symbol" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.2 4.2L19 6.9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>每日执行力</span>
+      </a>
+      <div class="appbar-actions">
+        <span class="save-state" id="save-state" title="所有数据保存在此浏览器中">本地已保存</span>
+        <button class="icon-btn" type="button" data-action="navigate" data-tab="more" aria-label="打开设置与更多">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15.2a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4z" stroke="currentColor" stroke-width="1.7"/><path d="M19.4 13.5a7.8 7.8 0 000-3l2-1.5-2-3.4-2.4 1a8 8 0 00-2.6-1.5L14 2.5h-4L9.6 5a8 8 0 00-2.6 1.5l-2.4-1-2 3.4 2 1.5a7.8 7.8 0 000 3l-2 1.5 2 3.4 2.4-1A8 8 0 009.6 19l.4 2.5h4l.4-2.5a8 8 0 002.6-1.5l2.4 1 2-3.4-2-1.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="view" class="view" tabindex="-1" aria-live="polite"></main>
+  </div>
+
+  <nav class="tabbar" aria-label="主导航">
+    <a class="tab-link" href="#today" data-tab="today">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 11.5L12 5l7.5 6.5V20a1 1 0 01-1 1h-4.2v-5.4H9.7V21H5.5a1 1 0 01-1-1v-8.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <span>今日</span>
+    </a>
+    <a class="tab-link" href="#courses" data-tab="courses">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h2.2M13.8 13H16M8 16.7h2.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      <span>课程</span>
+    </a>
+    <a class="tab-link" href="#tasks" data-tab="tasks">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 6.2h10M9.5 12h10M9.5 17.8h10M4.5 6.2l1.1 1.1L7.8 5M4.5 12l1.1 1.1 2.2-2.3M4.5 17.8l1.1 1.1 2.2-2.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>任务</span>
+    </a>
+    <a class="tab-link" href="#review" data-tab="review">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4.5h9.2A2.8 2.8 0 0117 7.3V21l-6-3.3L5 21V4.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.2 8.5h5.4M8.2 12h3.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      <span>复盘</span>
+    </a>
+    <a class="tab-link" href="#more" data-tab="more">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="5" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="19" cy="12" r="1.7" fill="currentColor"/></svg>
+      <span>更多</span>
+    </a>
+  </nav>
+
+  <noscript>
+    <div class="noscript">这个应用需要启用 JavaScript 才能使用。请在浏览器设置中允许 JavaScript 后刷新页面。</div>
+  </noscript>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
